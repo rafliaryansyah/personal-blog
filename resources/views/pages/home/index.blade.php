@@ -36,12 +36,12 @@
 			        <hr> 
 				</div><!--//profile-section-->
 				
-				<div class="my-2 my-md-3">
+				<div class="my-4 my-md-3">
                     
 					<ul class="social-list list-inline mx-auto">
 			            <li class="list-inline-item"><a href="#"><i class="fab fa-twitter fa-fw"></i></a></li>
 			            <li class="list-inline-item"><a href="#"><i class="fab fa-linkedin-in fa-fw"></i></a></li>
-			            <li class="list-inline-item"><a href="#"><i class="fab fa-github-alt fa-fw"></i></a></li>
+			            <li class="list-inline-item"><a href="https://github.com/rafliaryansyah"><i class="fab fa-github-alt fa-fw"></i></a></li>
 			            <li class="list-inline-item"><a href="#"><i class="fab fa-linkedin fa-fw"></i></a></li>
 			        </ul><!--//social-list-->
 				    <a class="btn btn-primary" href="https://themes.3rdwavemedia.com/" target="_blank">Get in Touch</a>
@@ -51,43 +51,39 @@
     </header>
     
     <div class="main-wrapper">
-	    <section class="blog-list px-3 py-5 p-md-5">
+	    <section class="blog-list px-5 py-5 p-md-5">
 		    <div class="container">
-			    <div class="item mb-5">
-				    <div class="media">
-					    <img class="mr-3 img-fluid post-thumb d-none d-md-flex" src="{{ asset('assets/assets/images/blog/blog-post-thumb-1.jpg') }}" alt="image">
-					    <div class="media-body">
-						    <h3 class="title mb-1"><a href="blog-post.html">Why Every Developer Should Have A Blog</a></h3>
-						    <div class="meta mb-1"><span class="date">Published 2 days ago</span><span class="time">5 min read</span><span class="comment"><a href="#">8 comments</a></span></div>
-						    <div class="intro">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies...</div>
-						    <a class="more-link" href="blog-post.html">Read more &rarr;</a>
-					    </div><!--//media-body-->
-				    </div><!--//media-->
+			    <div class="item mb-3">
+                    <div class="card">
+                        <div class="card-body">         
+                            <div class="media">
+                                <img class="mr-4 img-fluid post-thumb d-none d-md-flex" src="{{ asset('assets/assets/images/blog/blog-post-thumb-1.jpg') }}" alt="image">
+                                <div class="media-body">
+                                    <h3 class="title mb-1"><a href="blog-post.html">Why Every Developer Should Have A Blog</a></h3>
+                                    <div class="meta mb-1"><span class="date">Published 2 days ago</span><span class="time">5 min read</span><span class="comment"><a href="#">8 comments</a></span></div>
+                                    <div class="intro">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies...</div>
+                                    <a class="more-link" href="blog-post.html">Read more &rarr;</a>
+                                </div><!--//media-body-->
+                            </div><!--//media-->
+                        </div>
+                    </div>
+                </div><!--//item-->
+                <div class="item mb-3">
+                    <div class="card">
+                        <div class="card-body">         
+                            <div class="media">
+                                <img class="mr-4 img-fluid post-thumb d-none d-md-flex" src="{{ asset('assets/assets/images/blog/blog-post-thumb-1.jpg') }}" alt="image">
+                                <div class="media-body">
+                                    <h3 class="title mb-1"><a href="blog-post.html">Why Every Developer Should Have A Blog</a></h3>
+                                    <div class="meta mb-1"><span class="date">Published 2 days ago</span><span class="time">5 min read</span><span class="comment"><a href="#">8 comments</a></span></div>
+                                    <div class="intro">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies...</div>
+                                    <a class="more-link" href="blog-post.html">Read more &rarr;</a>
+                                </div><!--//media-body-->
+                            </div><!--//media-->
+                        </div>
+                    </div>
 			    </div><!--//item-->
 			    
-			    <div class="item mb-5">
-				    <div class="media">
-					    <img class="mr-3 img-fluid post-thumb d-none d-md-flex" src="{{ asset('assets/assets/images/blog/blog-post-thumb-1.jpg') }}" alt="image">
-					    <div class="media-body">
-						    <h3 class="title mb-1"><a href="blog-post.html">Learn React in 24 Hours</a></h3>
-						    <div class="meta mb-1"><span class="date">Published 2 months ago</span><span class="time">10 min read</span><span class="comment"><a href="#">23 comments</a></span></div>
-						    <div class="intro">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies...</div>
-						    <a class="more-link" href="blog-post.html">Read more &rarr;</a>
-					    </div><!--//media-body-->
-				    </div><!--//media-->
-			    </div><!--//item-->
-			    
-			    <div class="item  my-5">
-				    <div class="media">
-					    <img class="mr-3 img-fluid post-thumb d-none d-md-flex" src="{{ asset('assets/assets/images/blog/blog-post-thumb-1.jpg') }}" alt="image">
-					    <div class="media-body">
-						    <h3 class="title mb-1"><a href="blog-post.html">About Remote Working</a></h3>
-						    <div class="meta mb-1"><span class="date">Published 3 months ago</span><span class="time">2 min read</span><span class="comment"><a href="#">1 comment</a></span></div>
-						    <div class="intro">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies...</div>
-						    <a class="more-link" href="blog-post.html">Read more &rarr;</a>
-					    </div><!--//media-body-->
-				    </div><!--//media-->
-			    </div><!--//item-->
 			    
 				
 		    </div>
