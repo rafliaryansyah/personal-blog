@@ -34,7 +34,7 @@
               <td>{{ $loop->iteration }}</td>
               <td>{{ $tag->name }}</td>
               <td>
-                <a href="" class="btn btn-primary btn-icon-split btn-sm">
+                <a href="{{ route('tag.edit', $tag->id) }}" class="btn btn-primary btn-icon-split btn-sm">
                     <span class="icon text-white-50">
                       <i class="fas fa-pen"></i>
                     </span>

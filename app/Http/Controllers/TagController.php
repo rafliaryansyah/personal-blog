@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -69,7 +70,8 @@ class TagController extends Controller
      */
     public function edit($id)
     {
-        //
+        $tag = Tag::findOrFail($id);
+        return view('pages.backends.tag.edit', compact('tag'));
     }
 
     /**
@@ -81,7 +83,19 @@ class TagController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required'
+        ]);
+
+        $tag_data = [
+            'name' => $request->name,
+            'slug' => Str::slug($request->name)
+        ];
+
+        Tag::whereId($id)->update($tag_data);
+
+        return redirect()->route('tag.index');
+
     }
 
     /**
