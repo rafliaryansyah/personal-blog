@@ -39,11 +39,15 @@
                       <i class="fas fa-pen"></i>
                     </span>
                   </a>
-                  <a href="#" class="btn btn-danger btn-icon-split  btn-sm">
-                    <span class="icon text-white-50">
-                      <i class="fas fa-trash"></i>
-                    </span>
-                  </a>
+                  <form action="{{ route('category.destroy', $category->id ) }}" method="POST" class="d-inline">
+                    @csrf
+                    @method('delete')
+                    <button href="#" class="btn btn-danger btn-icon-split  btn-sm" type="submit">
+                      <span class="icon text-white-50">
+                        <i class="fas fa-trash"></i>
+                      </span>
+                    </button>
+                  </form>
               </td>
             </tr>
             @endforeach
