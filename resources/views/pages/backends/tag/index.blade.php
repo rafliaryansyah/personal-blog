@@ -39,7 +39,7 @@
                       <i class="fas fa-pen"></i>
                     </span>
                   </a>
-                  <form action="" method="POST" class="d-inline">
+                  <form action="{{ route('tag.destroy', $tag->id) }}" method="POST" class="d-inline">
                     @csrf
                     @method('delete')
                     <button class="btn btn-danger btn-icon-split  btn-sm" type="submit">
