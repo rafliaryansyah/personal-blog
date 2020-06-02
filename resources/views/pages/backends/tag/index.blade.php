@@ -1,11 +1,11 @@
 @extends('layouts.admin')
 
-@section('title', 'Category Admin')
+@section('title', 'Tag Admin')
 @section('content')
 <div class="container-fluid">
 
   <!-- Page Heading -->
-  <h1 class="h3 mb-2 text-gray-800">Title Category</h1>
+  <h1 class="h3 mb-2 text-gray-800">Title Tag</h1>
   <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>
 
   <!-- DataTales Example -->
@@ -34,12 +34,12 @@
               <td>{{ $loop->iteration }}</td>
               <td>{{ $tag->name }}</td>
               <td>
-                <a href="{{ route('tag.edit', $tag->tag) }}" class="btn btn-primary btn-icon-split btn-sm">
+                <a href="" class="btn btn-primary btn-icon-split btn-sm">
                     <span class="icon text-white-50">
                       <i class="fas fa-pen"></i>
                     </span>
                   </a>
-                  <form action="{{ route('tag.destroy', $tag->tag ) }}" method="POST" class="d-inline">
+                  <form action="" method="POST" class="d-inline">
                     @csrf
                     @method('delete')
                     <button class="btn btn-danger btn-icon-split  btn-sm" type="submit">
