@@ -29,13 +29,13 @@
 
     <!-- Nav Item - Tables -->
     <li class="nav-item">
-      <a class="nav-link" href="tables.html">
+      <a class="nav-link" href="{{ route('post.index') }}">
         <i class="fas fa-fw fa-clipboard"></i>
         <span>Post</span></a>
     </li>
     <!-- Nav Item - Tables -->
     <li class="nav-item">
-      <a class="nav-link" href="tables.html">
+      <a class="nav-link" href="{{ route('category.index') }}">
         <i class="fas fa-fw fa-caret-square-down"></i>
         <span>Category</span></a>
     </li>

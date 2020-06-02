@@ -15,4 +15,5 @@ Route::get('/', function () {
     return view('pages.home.index');
 });
 
-Route::get('/post', 'PostController@index');
+Route::resource('post', 'PostController');
+Route::resource('category', 'CategoryController');
