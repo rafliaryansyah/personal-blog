@@ -34,12 +34,7 @@
               <td>{{ $loop->iteration }}</td>
               <td>{{ $category->name }}</td>
               <td>
-                <a href="#" class="btn btn-info btn-icon-split btn-sm">
-                    <span class="icon text-white-50">
-                      <i class="fas fa-search"></i>
-                    </span>
-                  </a>
-                <a href="#" class="btn btn-primary btn-icon-split btn-sm">
+                <a href="{{ route('category.edit', $category->id) }}" class="btn btn-primary btn-icon-split btn-sm">
                     <span class="icon text-white-50">
                       <i class="fas fa-pen"></i>
                     </span>

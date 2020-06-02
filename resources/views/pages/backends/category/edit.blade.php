@@ -10,7 +10,7 @@
   <!-- DataTales Example -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-    <a href="{{ route('category.index') }}" class="btn btn-danger btn-icon-split">
+      <a href="#" class="btn btn-danger btn-icon-split">
         <span class="icon text-white-50">
           <i class="fas fa-chevron-left"></i>
         </span>
@@ -20,14 +20,15 @@
   
 <div class="card-body">
     <div class="table-responsive">
-        <form action="{{ route('category.store') }}" method="POST">
+        <form action="{{ route('category.update', $category->id) }}" method="POST">
         @csrf
+        @method('PUT')
         <div class="form-group">
           <label for="name">Category</label>
-          <input type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp">
+          <input type="text" class="form-control" id="name" name="name" value="{{ $category->name }}">
           </div>
           <div class="form-group">
-              <button class="btn btn-primary btn-block" type="submit">Add Category</button>
+              <button class="btn btn-primary btn-block" type="submit">Update Category</button>
           </div>
         </form>
     </div>
