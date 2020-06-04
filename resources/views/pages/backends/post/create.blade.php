@@ -59,7 +59,7 @@
           </div>
           <div class="form-group">
             <label>Pilih Tags</label>
-              <select class="form-control select2" multiple="" name="tag">
+              <select class="form-control select2 @error('tag[]') is-invalid @enderror" multiple="" name="tag[]">
                   @foreach($tags as $tag)
                   <option value="{{ $tag->id }}">{{ $tag->name }}</option> 
                   @endforeach
