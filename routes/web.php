@@ -11,10 +11,15 @@
 |
 */
 
+
 Route::get('/', function () {
     return view('pages.home.index');
 });
 
+Route::get('/post/showDelete', 'PostController@showDelete')->name('post.showDelete');
+Route::get('/post/restore/{id}', 'PostController@restore')->name('post.restore');
+
 Route::resource('/post', 'PostController');
 Route::resource('/category', 'CategoryController');
 Route::resource('/tag', 'TagController');
+

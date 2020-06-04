@@ -135,10 +135,6 @@ class PostController extends Controller
         $post->update($postData);
         
         return redirect()->route('post.index');
-
-
-
-
     }
 
     /**
@@ -154,4 +150,20 @@ class PostController extends Controller
 
         return redirect()->route('post.index');
     }
+
+    public function showDelete()
+    {
+        $posts = Post::onlyTrashed()->paginate(10);
+        return view('pages.backends.post.restore', compact('posts'));
+    }
+
+    public function restore($id)
+    {
+        $post = Post::withTrashed()->where('id', $id)->first();
+        $post->restore();
+
+        return redirect()->route('post.index');
+
+    }
+
 }

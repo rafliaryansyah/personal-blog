@@ -11,17 +11,11 @@
   <!-- DataTales Example -->
   <div class="card shadow mb-4">
     <div class="card-header py-3">
-      <a href="{{ route('post.create') }}" class="btn btn-primary btn-icon-split">
+      <a href="{{ route('post.index') }}" class="btn btn-primary btn-icon-split">
         <span class="icon text-white-50">
-          <i class="fas fa-plus"></i>
+          <i class="fas fa-chevron-left"></i>
         </span>
-        <span class="text">Add Title</span>
-      </a>
-      <a href="{{ route('post.showDelete') }}" class="btn btn-warning btn-icon-split">
-        <span class="icon text-white-50">
-          <i class="fas fa-recycle"></i>
-        </span>
-        <span class="text">Delete Post History</span>
+        <span class="text">Back to Post</span>
       </a>
     </div>
     <div class="card-body">
@@ -56,14 +50,9 @@
               <td>Username Acc</td>
               <td><img src="{{ asset( $result->image ) }}" class="img-fluid" width="100"></td>
               <td>
-                <a href="#" class="btn btn-info btn-icon-split btn-sm">
+                <a href="{{ route('post.restore', $result->id) }}" class="btn btn-warning btn-icon-split btn-sm">
                     <span class="icon text-white-50">
-                      <i class="fas fa-search"></i>
-                    </span>
-                  </a>
-                <a href="{{ route('post.edit', $result->id) }}" class="btn btn-primary btn-icon-split btn-sm">
-                    <span class="icon text-white-50">
-                      <i class="fas fa-pen"></i>
+                      <i class="fas fa-recycle"></i>
                     </span>
                 </a>
                 <form action="{{ route('post.destroy', $result->id) }}" method="POST" class="d-inline">
