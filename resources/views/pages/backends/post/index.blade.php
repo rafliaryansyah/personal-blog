@@ -59,12 +59,16 @@
                     <span class="icon text-white-50">
                       <i class="fas fa-pen"></i>
                     </span>
-                  </a>
-                  <a href="#" class="btn btn-danger btn-icon-split  btn-sm">
+                </a>
+                <form action="{{ route('post.destroy', $result->id) }}" method="POST" class="d-inline">
+                  @csrf
+                  @method('delete')
+                  <button type="submit" class="btn btn-danger btn-icon-split btn-sm ">
                     <span class="icon text-white-50">
                       <i class="fas fa-trash"></i>
                     </span>
-                  </a>
+                  </button>
+                </form>
               </td>
             </tr>
             @endforeach
