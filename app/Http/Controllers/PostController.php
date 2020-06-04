@@ -163,7 +163,14 @@ class PostController extends Controller
         $post->restore();
 
         return redirect()->route('post.index');
+    }
 
+    public function killed($id)
+    {
+        $post = Post::withTrashed()->where('id', $id)->first();
+        $post->forceDelete();
+
+        return redirect()->route('post.showDelete');
     }
 
 }

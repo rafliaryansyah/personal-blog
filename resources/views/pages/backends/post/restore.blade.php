@@ -55,7 +55,7 @@
                       <i class="fas fa-recycle"></i>
                     </span>
                 </a>
-                <form action="{{ route('post.destroy', $result->id) }}" method="POST" class="d-inline">
+                <form action="{{ route('post.killed', $result->id) }}" method="POST" class="d-inline">
                   @csrf
                   @method('delete')
                   <button type="submit" class="btn btn-danger btn-icon-split btn-sm ">

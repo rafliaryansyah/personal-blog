@@ -18,6 +18,7 @@ Route::get('/', function () {
 
 Route::get('/post/showDelete', 'PostController@showDelete')->name('post.showDelete');
 Route::get('/post/restore/{id}', 'PostController@restore')->name('post.restore');
+Route::delete('/post/killed/{id}', 'PostController@killed')->name('post.killed');
 
 Route::resource('/post', 'PostController');
 Route::resource('/category', 'CategoryController');

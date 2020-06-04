@@ -1,6 +1,11 @@
 @extends('layouts.admin')
 
+
+
 @section('title', 'Post Admin')
+@push('after-style')
+    <link rel="stylesheet" href="cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+@endpush
 @section('content')
 <div class="container-fluid">
 
@@ -86,3 +91,12 @@
 
 </div>
 @endsection
+
+
+@push('after-script')
+  <script>
+    $(document).ready( function () {
+      $('.table-bordered').DataTable();
+    });
+  </script>
+@endpush
