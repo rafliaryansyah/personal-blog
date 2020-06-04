@@ -86,7 +86,10 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Post::findOrFail($id);
+        $category = Category::all();
+        $tags = Tag::all();
+        return view('pages.backends.post.edit', compact('post', 'category', 'tags'));
     }
 
     /**
@@ -98,7 +101,44 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required',
+            'category_id' => 'required',
+            'content' => 'required'
+        ]);
+
+        $post = Post::findOrFail($id);
+
+        if ($request->has('image')) {
+            
+            $image = $request->image;
+            $new_image = time().$image->getClientOriginalName();
+            $image->move('public/uploads/post/', $new_image);
+
+            $postData = [
+                'title' => $request->title,
+                'category_id' => $request->category_id,
+                'content' => $request->content,
+                'image' => 'public/uploads/post/' . $new_image,
+                'slug' => Str::slug($request->title)
+            ];
+        } else {
+            $postData = [
+                'title' => $request->title,
+                'category_id' => $request->category_id,
+                'content' => $request->content,
+                'slug' => Str::slug($request->title)
+            ];
+        }
+
+        $post->tags()->sync($request->tag);
+        $post->update($postData);
+        
+        return redirect()->route('post.index');
+
+
+
+
     }
 
     /**

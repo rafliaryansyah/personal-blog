@@ -55,7 +55,7 @@
                       <i class="fas fa-search"></i>
                     </span>
                   </a>
-                <a href="#" class="btn btn-primary btn-icon-split btn-sm">
+                <a href="{{ route('post.edit', $result->id) }}" class="btn btn-primary btn-icon-split btn-sm">
                     <span class="icon text-white-50">
                       <i class="fas fa-pen"></i>
                     </span>

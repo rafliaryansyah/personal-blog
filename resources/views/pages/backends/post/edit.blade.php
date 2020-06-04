@@ -32,11 +32,12 @@
   
 <div class="card-body">
     <div class="table-responsive">
-        <form action="{{ route('post.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('post.update', $post->id) }}" method="POST" enctype="multipart/form-data">
           @csrf
+          @method('PUT')
           <div class="form-group">
             <label for="title">Title</label>
-              <input type="text" name="title" class="form-control @error('title') is-invalid @enderror" id="title" value="{{ old('title') }}">
+              <input type="text" name="title" class="form-control @error('title') is-invalid @enderror" id="title" value="{{ $post->title }}">
               @error('title')
                   <span class="invalid-feedback" role="alert">
                       <strong>{{ $message }}</strong>
@@ -46,9 +47,12 @@
           <div class="form-group">
             <label for="category">Category</label>
               <select name="category_id" class="form-control @error('category_id') is-invalid @enderror" value="{{ old('category_id') }}">
-                <option value="" class="text-center" selected>-- Select Category --</option>
                   @foreach ($category as $result)
-                    <option value="{{ $result->id }}">{{ $result->name }}</option>
+                    <option value="{{ $result->id }}"
+                        @if ($result->id == $post->category->id)
+                            selected
+                        @endif
+                            >{{ $result->name }}</option>
                   @endforeach
               </select>
               @error('category_id')
@@ -61,7 +65,13 @@
             <label>Pilih Tags</label>
               <select class="form-control select2 @error('tag[]') is-invalid @enderror" multiple="" name="tag[]">
                   @foreach($tags as $tag)
-                  <option value="{{ $tag->id }}">{{ $tag->name }}</option> 
+                    <option value="{{ $tag->id }}"
+                        @foreach ($post->tags as $value)
+                            @if ($tag->id == $value->id)
+                                selected
+                            @endif
+                        @endforeach
+                        >{{ $tag->name }}</option> 
                   @endforeach
               </select>
               @error('tag[]')
@@ -72,7 +82,7 @@
           </div>
         <div class="form-group">
           <label for="">Content</label>
-            <textarea name="content" id="content" class="form-control ckeditor @error('content') is-invalid @enderror" value="{{ old('content') }}"></textarea> 
+            <textarea name="content" id="content" class="form-control ckeditor @error('content') is-invalid @enderror">{{ $post->content }}</textarea> 
             @error('content')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -82,8 +92,8 @@
         <div class="form-group">
           <label for="thumbnail">Thumbnail</label>
             <div class="custom-file">
-              <input type="file" class="custom-file-input  @error('image') is-invalid @enderror" id="customFile" name="image" value="{{ old('image') }}">
-              <label class="custom-file-label" for="customFile">Choose file</label>
+              <input type="file" class="custom-file-input  @error('image') is-invalid @enderror" id="customFile" name="image">
+              <label class="custom-file-label" for="customFile">{{ $post->image }}</label>
             </div>
             @error('image')
                 <span class="invalid-feedback" role="alert">
@@ -92,7 +102,7 @@
             @enderror
         </div>
         <div class="form-group">
-            <button class="btn btn-primary btn-block" type="submit">Add Post</button>
+            <button class="btn btn-primary btn-block" type="submit">Update Post</button>
         </div>
         </form>
     </div>  
