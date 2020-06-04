@@ -12,7 +12,9 @@
   <title>@yield('title')</title>
 
     {{-- Script Template --}}
+    @stack('before-style')
     @include('includes.admin.style')
+    @stack('after-style')
 
 </head>
 
@@ -77,7 +79,9 @@
   </div>
 
   {{-- Script Template --}}
+  @stack('before-script')
   @include('includes.admin.script')
+  @stack('after-script')
 
 </body>
 

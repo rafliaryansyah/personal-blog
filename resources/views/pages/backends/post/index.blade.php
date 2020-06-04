@@ -11,7 +11,7 @@
   <!-- DataTales Example -->
   <div class="card shadow mb-4">
     <div class="card-header py-3">
-      <a href="#" class="btn btn-primary btn-icon-split">
+      <a href="{{ route('post.create') }}" class="btn btn-primary btn-icon-split">
         <span class="icon text-white-50">
           <i class="fas fa-plus"></i>
         </span>
@@ -24,24 +24,31 @@
           <thead>
             <tr class="text-center">
               <th>No</th>
-              <th>Name</th>
-              <th>Position</th>
-              <th>Office</th>
-              <th>Age</th>
-              <th>Start date</th>
-              <th>Salary</th>
+              <th>Post Name</th>
+              <th>Category</th>
+              <th>List Tags</th>
+              <th>Author</th>
+              <th>Thumbnail</th>
               <th>Action</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>Tiger Nixon</td>
-              <td>System Architect</td>
-              <td>Edinburgh</td>
-              <td>61</td>
-              <td>2011/04/25</td>
-              <td>$320,800</td>
+            @foreach ($posts as $post => $result)
+            <tr class="text-center">
+              <td>{{ $loop->iteration }}</td>
+              <td>{{ $result->title }}</td>
+              <td>{{ $result->category->name }}</td>
+              <td>
+                @foreach ($result->tags as $tag)
+                  <ul>
+                    <h6>
+                      <span class="badge badge-info">{{ $tag->name }}</span>
+                    </h6>
+                  </ul>
+                @endforeach
+              </td>
+              <td>User Data</td>
+              <td><img src="{{ asset( $result->image ) }}" class="img-fluid" width="100"></td>
               <td>
                 <a href="#" class="btn btn-info btn-icon-split btn-sm">
                     <span class="icon text-white-50">
@@ -60,6 +67,7 @@
                   </a>
               </td>
             </tr>
+            @endforeach
           </tbody>
         </table>
       </div>

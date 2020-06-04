@@ -15,6 +15,6 @@ Route::get('/', function () {
     return view('pages.home.index');
 });
 
-Route::resource('post', 'PostController');
-Route::resource('category', 'CategoryController');
-Route::resource('tag', 'TagController');
+Route::resource('/post', 'PostController');
+Route::resource('/category', 'CategoryController');
+Route::resource('/tag', 'TagController');

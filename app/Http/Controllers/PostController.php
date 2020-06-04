@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
+use App\Post;
+use App\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
@@ -13,7 +18,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('pages.backends.post.index');
+        $posts = Post::all();
+        return view('pages.backends.post.index', compact('posts'));
     }
 
     /**
@@ -23,7 +29,9 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        $tags = Tag::all();
+        $category = Category::all();
+        return view('pages.backends.post.create', compact('tags', 'category'));
     }
 
     /**
@@ -34,7 +42,29 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required',
+            'category_id' => 'required',
+            'content' => 'required',
+            'image' => 'required'
+        ]);
+
+        $image = $request->image;
+        $new_image = time().$image->getClientOriginalName();
+
+        $post = Post::create([
+            'title' => $request->title,
+            'category_id' => $request->category_id,
+            'content' => $request->content,
+            'image' => 'public/uploads/post/' . $new_image,
+            'slug' => Str::slug($request->title)
+        ]);
+        $post->tags()->attach($request->tag);
+
+        $image->move('public/uploads/post/', $new_image);
+
+        return redirect()->route('post.index');
+
     }
 
     /**
