@@ -12,15 +12,26 @@
 */
 
 
+Auth::routes();
+
 Route::get('/', function () {
     return view('pages.home.index');
 });
 
-Route::get('/post/showDelete', 'PostController@showDelete')->name('post.showDelete');
-Route::get('/post/restore/{id}', 'PostController@restore')->name('post.restore');
-Route::delete('/post/killed/{id}', 'PostController@killed')->name('post.killed');
 
-Route::resource('/post', 'PostController');
-Route::resource('/category', 'CategoryController');
-Route::resource('/tag', 'TagController');
+
+Route::group(['middleware' => 'auth'], function()
+{
+    Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/post/showDelete', 'PostController@showDelete')->name('post.showDelete');
+    Route::get('/post/restore/{id}', 'PostController@restore')->name('post.restore');
+    Route::delete('/post/killed/{id}', 'PostController@killed')->name('post.killed');
+
+    Route::resource('/dashboard', 'DashboardController');
+    Route::resource('/post', 'PostController');
+    Route::resource('/category', 'CategoryController');
+    Route::resource('/tag', 'TagController');
+});
+
+
 
