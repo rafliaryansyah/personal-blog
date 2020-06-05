@@ -20,7 +20,7 @@ class BlogController extends Controller
     {
         $categoryWidget = Category::all();
         $data = Post::where('slug', $slug)->get();
-        return view('pages.home.content');
+        return view('pages.home.content', compact('categoryWidget', 'data'));
     }
 
 }

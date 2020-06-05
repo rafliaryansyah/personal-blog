@@ -10,7 +10,7 @@
                     <div class="card">
                         <div class="card-body">         
                             <div class="media">
-                                <a href="">
+                                <a href="{{ route('blog.content', $result->slug) }}">
                                     <img class="mr-4 img-fluid post-thumb d-none d-md-flex" src="{{ $result->image }}" alt="image">
                                 </a>
                                 <div class="media-body">
