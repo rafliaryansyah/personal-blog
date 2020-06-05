@@ -31,6 +31,8 @@ Route::group(['middleware' => 'auth'], function()
     Route::resource('/post', 'PostController');
     Route::resource('/category', 'CategoryController');
     Route::resource('/tag', 'TagController');
+    Route::get('profile', 'ProfileController@index')->name('profile.index');
+    Route::patch('profile', 'ProfileController@update')->name('profile.update');
 });
 
 
