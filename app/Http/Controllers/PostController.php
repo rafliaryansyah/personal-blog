@@ -18,7 +18,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::with(['category', 'tags', 'users'])->get();
         return view('pages.backends.post.index', compact('posts'));
     }
 
@@ -58,7 +58,7 @@ class PostController extends Controller
             'content' => $request->content,
             'image' => 'public/uploads/post/' . $new_image,
             'slug' => Str::slug($request->title),
-            'user_id' => Auth::id()
+            'users_id' => Auth::id()
         ]);
         $post->tags()->attach($request->tag);   
 

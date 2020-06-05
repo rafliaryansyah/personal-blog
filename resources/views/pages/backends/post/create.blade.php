@@ -72,7 +72,7 @@
           </div>
         <div class="form-group">
           <label for="">Content</label>
-            <textarea name="content" id="content" class="form-control ckeditor @error('content') is-invalid @enderror" value="{{ old('content') }}"></textarea> 
+            <textarea name="content" id="content" class="form-control ckeditor @error('content') is-invalid @enderror">{{ old('content') }}</textarea> 
             @error('content')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>

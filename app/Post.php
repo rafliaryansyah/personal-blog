@@ -14,7 +14,7 @@ class Post extends Model
     protected $primaryKey = 'id';
     
 
-    protected $fillable = ['title', 'category_id', 'content', 'image', 'slug', 'user_id'];
+    protected $fillable = ['title', 'category_id', 'content', 'image', 'slug', 'users_id'];
 
     public function category(){
     	return $this->belongsTo('App\Category');

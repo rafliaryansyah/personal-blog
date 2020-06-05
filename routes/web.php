@@ -14,11 +14,10 @@
 
 Auth::routes();
 
-Route::get('/', function () {
-    return view('pages.home.index');
-});
+Route::get('/', 'BlogController@index');
 
 
+Route::get('/content/{slug}', 'BlogController@contentBlog')->name('blog.content');
 
 Route::group(['middleware' => 'auth'], function()
 {
