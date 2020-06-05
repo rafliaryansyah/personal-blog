@@ -58,7 +58,7 @@
                   </ul>
                 @endforeach
               </td>
-              <td>Username Acc</td>
+              <td><strong>{{ $result->users->name }}</strong></td>
               <td><img src="{{ asset( $result->image ) }}" class="img-fluid" width="100"></td>
               <td>
                 <a href="#" class="btn btn-info btn-icon-split btn-sm">
