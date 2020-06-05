@@ -75,7 +75,7 @@ class ProfileController extends Controller
             $request->all()
         );
 
-        return view('pages.backends.profile.index');
+        return redirect()->route('profile.index');
     }
 
     /**
